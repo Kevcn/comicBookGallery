@@ -15,14 +15,16 @@ namespace ComicBookGallery.Controllers
 
         public ActionResult Detail()
         {
-            if (DateTime.Today.DayOfWeek == DayOfWeek.Tuesday)
-            {
-                // shortcut for RedirectResult.
-                return Redirect("/");
-            }
+            return View();
 
-            //accepts a string for content.  shortcut for ContentResult.
-            return Content("Detail page");
+            //if (DateTime.Today.DayOfWeek == DayOfWeek.Tuesday)
+            //{
+            //    // shortcut for RedirectResult.
+            //    return Redirect("/");
+            //}
+
+            ////accepts a string for content.  shortcut for ContentResult.
+            //return Content("Detail page");
         }
     }
 }
