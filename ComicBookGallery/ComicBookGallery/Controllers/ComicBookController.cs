@@ -13,9 +13,16 @@ namespace ComicBookGallery.Controllers
             return "Index page";
         }
 
-        public string Details()
+        public ActionResult Detail()
         {
-            return "show details page";
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Tuesday)
+            {
+                // shortcut for RedirectResult.
+                return Redirect("/");
+            }
+
+            //accepts a string for content.  shortcut for ContentResult.
+            return Content("Detail page");
         }
     }
 }
