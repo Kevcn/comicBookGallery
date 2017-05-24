@@ -19,7 +19,7 @@ namespace ComicBookGallery.Controllers
             // create a new Model in the controller
             var comicBook = new ComicBook()
                 {
-                    SeriesTitle = "The Amazing Spideman",
+                    SeriesTitle = "The Amazing Spider man",
                     IssueNumber = 700,
                     Description = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
                     
