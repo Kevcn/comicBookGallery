@@ -4,36 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ComicBookGallery.Models;
+using ComicBookGallery.Data;
 
 namespace ComicBookGallery.Controllers
 {
     public class ComicBookController : Controller
     {
+        private ComicBookRepository accessRepository = null;
+
+        public ComicBookController()
+        {
+            accessRepository = new ComicBookRepository();
+        }
+
         public string Index()
         {
             return "Index page";
         }
 
-        public ActionResult Detail()
+        public ActionResult Detail(int? id)
         {
             // create a new Model in the controller
-            var comicBook = new ComicBook()
-                {
-                    SeriesTitle = "The Amazing Spider man",
-                    IssueNumber = 700,
-                    Description = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
-                    
-                    Artists = new List<Artist>()
-                    {
-                        new Artist() { Name = "Script", Role = "Dan Slott" },
-                        new Artist() { Name = "Pencils", Role = "Humberto Ramos" },
-                        new Artist() { Name = "Inks", Role = "Victor Olazaba" },
-                        new Artist() { Name = "Colors", Role = "Edgar Delgado" },
-                        new Artist() { Name = "Letters", Role = "Chris Eliopoulos" },
-                    }
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
 
-                    
-                };
+            var comicBook = accessRepository.GetComicBook((int)id);
 
             // Strongly typed, expose the model instance through its model properties. 
             return View(comicBook);
