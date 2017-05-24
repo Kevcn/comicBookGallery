@@ -17,10 +17,17 @@ namespace ComicBookGallery.Controllers
             accessRepository = new ComicBookRepository();
         }
 
-        public string Index()
+
+
+        public ActionResult Index()
         {
-            return "Index page";
+            var comicBooks = accessRepository.GetComicBooks();
+
+            return View(comicBooks);
         }
+
+
+
 
         public ActionResult Detail(int? id)
         {

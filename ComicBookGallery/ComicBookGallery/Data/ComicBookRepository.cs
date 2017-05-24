@@ -79,5 +79,12 @@ namespace ComicBookGallery.Data
 			return comicBookToReturn;
 		}
 
+
+		public List<ComicBook> GetComicBooks()
+		{
+			return comicBooks;
+		}
+
+
 	}
 }
