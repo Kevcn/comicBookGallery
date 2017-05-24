@@ -16,7 +16,7 @@ namespace ComicBookGallery.Controllers
 
         public ActionResult Detail()
         {
-
+            // create a new Model in the controller
             var comicBook = new ComicBook()
                 {
                     SeriesTitle = "The Amazing Spideman",
@@ -35,6 +35,7 @@ namespace ComicBookGallery.Controllers
                     
                 };
 
+            // Strongly typed, expose the model instance through its model properties. 
             return View(comicBook);
         }
     }
